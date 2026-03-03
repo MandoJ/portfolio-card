@@ -21,28 +21,18 @@
     justify-content: center;
     min-height: 100vh;
     font-family: 'Share Tech Mono', monospace;
-    gap: 24px;
-    padding: 40px 20px;
-  }
-
-  .label {
-    color: #444;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
 
   /* ── THUMBNAIL ── */
   .card {
-    width: 560px;
-    height: 314px;
+    width: 100vw;
+    height: 100vh;
     position: relative;
     background: #07070d;
-    border: 1px solid #1a1a2e;
-    border-radius: 6px;
     overflow: hidden;
-    cursor: pointer;
   }
 
   /* animated grid */
@@ -103,7 +93,7 @@
     position: relative;
     z-index: 2;
     height: 100%;
-    padding: 28px 32px;
+    padding: 60px 80px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -117,11 +107,11 @@
 
   .badge {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
+    font-size: 18px;
     color: #00ffb4;
     letter-spacing: 2px;
     border: 1px solid rgba(0,255,180,0.3);
-    padding: 4px 10px;
+    padding: 8px 20px;
     border-radius: 2px;
     background: rgba(0,255,180,0.05);
   }
@@ -143,20 +133,20 @@
   .name {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: 42px;
+    font-size: 100px;
     color: #fff;
     line-height: 1;
-    letter-spacing: -1px;
+    letter-spacing: -2px;
   }
   .name span { color: #00ffb4; }
 
   .role {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 12px;
+    font-size: 22px;
     color: #555;
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin-top: 6px;
+    margin-top: 12px;
   }
 
   .bottom {
@@ -173,12 +163,12 @@
   }
   .skill-tag {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 9px;
+    font-size: 16px;
     color: #00ffb4;
     letter-spacing: 1.5px;
     background: rgba(0,255,180,0.07);
     border: 1px solid rgba(0,255,180,0.2);
-    padding: 3px 8px;
+    padding: 6px 16px;
     border-radius: 2px;
     text-transform: uppercase;
   }
@@ -197,11 +187,11 @@
 
   .cta-btn {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 10px;
+    font-size: 18px;
     color: #0a0a0f;
     background: #00ffb4;
     border: none;
-    padding: 7px 14px;
+    padding: 14px 28px;
     border-radius: 3px;
     letter-spacing: 1px;
     text-decoration: none;
@@ -212,7 +202,7 @@
 
   .github-url {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 11px;
+    font-size: 20px;
     color: #00ffb4;
     opacity: 0.8;
     text-align: right;
