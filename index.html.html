@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armando Lopo – GitHub Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Share Tech Mono', monospace;
+    gap: 24px;
+    padding: 40px 20px;
+  }
+
+  .label {
+    color: #444;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* ── THUMBNAIL ── */
+  .card {
+    width: 560px;
+    height: 314px;
+    position: relative;
+    background: #07070d;
+    border: 1px solid #1a1a2e;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  /* animated grid */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,180,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,180,0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+    animation: gridDrift 20s linear infinite;
+  }
+  @keyframes gridDrift {
+    from { background-position: 0 0; }
+    to   { background-position: 36px 36px; }
+  }
+
+  /* glow orbs */
+  .orb1 {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,180,0.12) 0%, transparent 70%);
+    top: -80px; left: -60px;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  .orb2 {
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(100,80,255,0.15) 0%, transparent 70%);
+    bottom: -40px; right: 60px;
+    animation: pulse 5s ease-in-out infinite reverse;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  /* scan line */
+  .scan {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0,255,180,0.6), transparent);
+    top: 0;
+    animation: scan 4s ease-in-out infinite;
+  }
+  @keyframes scan {
+    0%   { top: 0; opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  /* content */
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: #00ffb4;
+    letter-spacing: 2px;
+    border: 1px solid rgba(0,255,180,0.3);
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: rgba(0,255,180,0.05);
+  }
+
+  .github-pill {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: #00ffb4; animation: blink 1.5s infinite; }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.2; } }
+
+  .name-block { }
+
+  .name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 42px;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .name span { color: #00ffb4; }
+
+  .role {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .skills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    max-width: 380px;
+  }
+  .skill-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: #00ffb4;
+    letter-spacing: 1.5px;
+    background: rgba(0,255,180,0.07);
+    border: 1px solid rgba(0,255,180,0.2);
+    padding: 3px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .skill-tag.purple {
+    color: #a78bfa;
+    background: rgba(167,139,250,0.07);
+    border-color: rgba(167,139,250,0.2);
+  }
+
+  .github-url {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: #00ffb4;
+    opacity: 0.8;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* decorative corner brackets */
+  .corner {
+    position: absolute;
+    width: 16px; height: 16px;
+    z-index: 3;
+  }
+  .corner.tl { top: 8px; left: 8px; border-top: 2px solid #00ffb4; border-left: 2px solid #00ffb4; opacity: 0.5; }
+  .corner.tr { top: 8px; right: 8px; border-top: 2px solid #00ffb4; border-right: 2px solid #00ffb4; opacity: 0.5; }
+  .corner.bl { bottom: 8px; left: 8px; border-bottom: 2px solid #00ffb4; border-left: 2px solid #00ffb4; opacity: 0.5; }
+  .corner.br { bottom: 8px; right: 8px; border-bottom: 2px solid #00ffb4; border-right: 2px solid #00ffb4; opacity: 0.5; }
+
+  /* ── TITLE SUGGESTION ── */
+  .title-box {
+    width: 560px;
+    background: #0d0d18;
+    border: 1px solid #1a1a2e;
+    border-radius: 6px;
+    padding: 20px 24px;
+  }
+  .title-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: #444;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .title-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .title-text span { color: #00ffb4; }
+  .subtitle-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: #555;
+    margin-top: 8px;
+    letter-spacing: 1px;
+  }
+
+  .instructions {
+    width: 560px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: #444;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    border-top: 1px solid #1a1a2e;
+    padding-top: 16px;
+  }
+  .instructions b { color: #00ffb4; }
+</style>
+</head>
+<body>
+
+  <div class="label">// LinkedIn Featured Thumbnail — 1200×627 ratio preview</div>
+
+  <div class="card">
+    <div class="grid"></div>
+    <div class="orb1"></div>
+    <div class="orb2"></div>
+    <div class="scan"></div>
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <div class="content">
+      <div class="top-row">
+        <div class="badge">AI ENGINEER | LLM FINE-TUNING</div>
+        <div class="github-pill"><div class="dot"></div>OPEN TO OPPORTUNITIES</div>
+      </div>
+
+      <div class="name-block">
+        <div class="name">ARMANDO<br><span>LOPO</span></div>
+        <div class="role">// AI Engineer · LLM Fine-Tuning · Automation</div>
+      </div>
+
+      <div class="bottom">
+        <div class="skills">
+          <span class="skill-tag">LLMs</span>
+          <span class="skill-tag purple">LoRA / QLoRA</span>
+          <span class="skill-tag">Fine-Tuning</span>
+          <span class="skill-tag purple">AI Automation</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag purple">Transformers</span>
+        </div>
+        <div class="github-url">github.com/MandoJ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LinkedIn Title Suggestion -->
+  <div class="title-box">
+    <div class="title-label">// Suggested LinkedIn Featured Title</div>
+    <div class="title-text">🔗 My AI Engineering Projects — <span>LLMs, LoRA Fine-Tuning & Automation</span></div>
+    <div class="subtitle-text">→ Recruiters: Click to explore my GitHub portfolio at github.com/MandoJ</div>
+  </div>
+
+  <div class="instructions">
+    <b>HOW TO USE:</b><br>
+    1. Screenshot or export this thumbnail (1200×627px recommended for LinkedIn)<br>
+    2. On LinkedIn → Featured → + → Add a Link<br>
+    3. Paste: <b>https://github.com/MandoJ</b><br>
+    4. Upload this image as the custom thumbnail<br>
+    5. Set the title & description from the box above
+  </div>
+
+</body>
+</html>
