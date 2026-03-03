@@ -183,6 +183,28 @@
     border-color: rgba(167,139,250,0.2);
   }
 
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .cta-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: #0a0a0f;
+    background: #00ffb4;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.85; }
+
   .github-url {
     font-family: 'Share Tech Mono', monospace;
     font-size: 11px;
@@ -277,10 +299,13 @@
           <span class="skill-tag purple">LoRA / QLoRA</span>
           <span class="skill-tag">Fine-Tuning</span>
           <span class="skill-tag purple">AI Automation</span>
-          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">Multimodal AI</span>
           <span class="skill-tag purple">Transformers</span>
         </div>
-        <div class="github-url">github.com/MandoJ</div>
+        <div class="right-col">
+          <div class="github-url">github.com/MandoJ</div>
+          <a href="https://github.com/MandoJ" target="_blank" class="cta-btn">→ View My Projects on GitHub</a>
+        </div>
       </div>
     </div>
   </div>
